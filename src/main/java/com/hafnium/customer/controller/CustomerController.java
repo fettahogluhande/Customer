@@ -24,4 +24,9 @@ public class CustomerController {
     public Customer getCustomerById(@PathVariable("id") Long id){
         return customerService.getCustomerFindById(id);
     }
+
+    @PutMapping("{id}")
+    public String updateFirstName(@PathVariable("id") Long id, @RequestBody Customer customer) {
+        return customerService.updateFirstName(id, customer);
+    }
 }

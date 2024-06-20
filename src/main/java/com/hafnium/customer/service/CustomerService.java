@@ -30,4 +30,15 @@ public class CustomerService {
             return null;
         }
     }
+    public String updateFirstName(Long id, Customer customer) {
+
+        Optional<Customer> optionalCustomer = customerRepository.findById(id);
+        if (optionalCustomer.isPresent()) {
+            Customer existingCustomer = optionalCustomer.get();
+            existingCustomer.setFirstName(customer.getFirstName());
+            customerRepository.save(existingCustomer);
+            return "Customer updated successfully";
+        }
+        return  null;
+    }
 }
