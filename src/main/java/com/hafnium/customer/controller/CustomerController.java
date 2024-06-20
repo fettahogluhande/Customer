@@ -29,4 +29,8 @@ public class CustomerController {
     public String updateFirstName(@PathVariable("id") Long id, @RequestBody Customer customer) {
         return customerService.updateFirstName(id, customer);
     }
+    @DeleteMapping("{id}")
+    public void deleteCustomer(@PathVariable("id") Long id){
+        customerService.deleteCustomer(id);
+    }
 }
